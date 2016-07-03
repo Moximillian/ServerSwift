@@ -5,6 +5,8 @@ How to setup server side Swift with Vapor & Heroku
 2. cd <projectfolder>
 3. git init
 4. swift package init --type executable
+5. swift package generate-xcodeproj
+## NOTE: the *.xcodeproj files are not committed to git repository
 
 x. git add .
 x. git commit
