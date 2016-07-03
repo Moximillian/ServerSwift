@@ -1,0 +1,10 @@
+
+How to setup server side Swift with Vapor & Heroku
+
+1. mkdir <projectfolder>
+2. cd <projectfolder>
+3. git init
+4. swift package init --type executable
+
+x. git add .
+x. git commit
