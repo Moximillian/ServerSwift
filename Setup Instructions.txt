@@ -4,9 +4,36 @@ How to setup server side Swift with Vapor & Heroku
 1. mkdir <projectfolder>
 2. cd <projectfolder>
 3. git init
+
+
+###### SETUP SWIFT PACKAGE MANAGER ######
+
 4. swift package init --type executable
-5. swift package generate-xcodeproj
+
+
+###### SETUP VAPOR ######
+
+5. Add Vapor dependency to Package.swift
+## slide 22 of https://realm.io/news/slug-edward-jiang-server-side-swift/
+
+6. swift package generate-xcodeproj
 ## NOTE: the *.xcodeproj files are not committed to git repository
 
-x. git add .
-x. git commit
+7. open ProjectName.xcodeproj
+
+8. Implement the vapor app
+## slide 24 of https://realm.io/news/slug-edward-jiang-server-side-swift/
+
+
+###### SETUP HEROKU ######
+
+9. heroku create
+10. heroku buildpacks:set https://github.com/kylef/heroku-buildpack-swift
+11. echo 'web: ProjectName --port=$PORT' >Procfile
+
+
+###### COMMIT AND PUSH TO HEROKU ######
+
+12. git add .
+13. git commit -m "Initial project"
+14. git push heroku master
