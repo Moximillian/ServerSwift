@@ -6,7 +6,13 @@ struct Stuff {
   let title: String = "Foober"
 
   func toJSON() -> String {
-    let dict = ["index": index, "title": title]
+    // Foundation on Linux is crap
+    #if os(OSX) || os(iOS)
+      let dict = ["index": index, "title": title]
+    #else
+      let putput: [String: AnyObject] = ["index": NSNumber(value: index), "title": title.bridge() as NSString]
+      let dict: NSDictionary = putput.bridge()
+    #endif
     do {
       let data = try NSJSONSerialization.data(withJSONObject: dict)
       return String(data: data, encoding: NSUTF8StringEncoding) ?? ""
@@ -22,6 +28,7 @@ let s = Stuff()
 let app = Application()
 
 app.get("/") { request in
+  // print("REQUEST: ", request)
   return s.toJSON()
 }
 
