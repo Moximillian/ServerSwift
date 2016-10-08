@@ -9,43 +9,27 @@ Currently it only serves "/" and responds with struct Stuff in json serializatio
 
 ## How to setup server side Swift with Vapor & Heroku from scratch
 
-    mkdir <projectfolder>
-    cd <projectfolder>
-    git init
+##### SETUP VAPOR TOOLBOX
+  
+    brew install vapor/tap/toolbox
 
-##### SETUP SWIFT PACKAGE MANAGER
+##### CREATE PROJECT & folder
+  
+      vapor new <project-name>
 
-    swift package init --type executable
+##### CREATE XCODE PROJECT
 
-##### SETUP VAPOR
+      vapor xcode
 
-Add Vapor dependency to Package.swift
+      ...then you can open the project file in XCode
 
-    import PackageDescription
+##### CODE STUFF
 
-    let package = Package(
-        name: "ServerSwift",
-        dependencies: [
-            .Package(url: "https://github.com/qutheory/vapor.git", majorVersion: 0, minor: 12)
-        ]
-    )
-
-NOTE: the *.xcodeproj files are not committed to git repository
-
-    swift package generate-xcodeproj
-
-    open ProjectName.xcodeproj
-
-Implement the vapor app –
-See slide 24 of https://realm.io/news/slug-edward-jiang-server-side-swift/
-
+      code stuff (Main.swift)
 
 ##### SETUP HEROKU
 
-    heroku create
-    heroku buildpacks:set https://github.com/kylef/heroku-buildpack-swift
-    echo 'web: ProjectName --port=$PORT' >Procfile
-
+      vapor heroku
 
 ##### COMMIT AND PUSH TO HEROKU
 
