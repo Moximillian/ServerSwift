@@ -1,1 +1,1 @@
-web: ServerSwift --port=$PORT
+web: App --env=production --workdir="./"
