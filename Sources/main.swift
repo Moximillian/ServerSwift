@@ -26,11 +26,11 @@ struct Stuff {
 
 let s = Stuff()
 
-let app = Application()
+let drop = Droplet()
 
-app.get("/") { request in
+drop.get("/") { request in
   // print("REQUEST: ", request)
   return s.toJSON()
 }
 
-app.start()
+drop.run()
