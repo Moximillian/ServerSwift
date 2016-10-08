@@ -29,11 +29,13 @@ Currently it only serves "/" and responds with struct Stuff in json serializatio
 
 ##### SETUP HEROKU
 
-      vapor heroku
+      vapor heroku init
 
 ##### COMMIT AND PUSH TO HEROKU
 
     git add .
     git commit -m "Initial project"
     git push heroku master
+
+    (or vapor heroku push)
     
