@@ -20,11 +20,16 @@ struct Stuff {
 
 let s = Stuff()
 
-let drop = Droplet()
+do {
+  let drop = try Droplet()
 
-drop.get("/") { request in
-  // print("REQUEST: ", request)
-  return s.toJSON()
+  drop.get("/") { request in
+    // print("REQUEST: ", request)
+    return s.toJSON()
+  }
+  
+  try drop.run()
+
+} catch {
+  print("ERROR: \(error)")
 }
-
-drop.run()
