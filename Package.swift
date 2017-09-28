@@ -1,17 +1,15 @@
+// swift-tools-version:4.0
 import PackageDescription
 
 let package = Package(
-    name: "ServerSwift",
-    dependencies: [
-        .Package(url: "https://github.com/vapor/vapor.git", majorVersion: 2, minor: 2)
-    ],
-    exclude: [
-        "Config",
-        "Database",
-        "Localization",
-        "Public",
-        "Resources",
-        "Tests",
-    ]
+  name: "ServerSwift",
+  dependencies: [
+    .package(url: "https://github.com/vapor/vapor", from: "2.2.0")
+  ],
+  targets: [
+    .target(name: "App", dependencies: ["Vapor"], path: ".", sources: ["Sources"])
+  ],
+  // "products: " -definition is implicit based on targets
+  swiftLanguageVersions: [4]
 )
 
