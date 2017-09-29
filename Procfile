@@ -1,1 +1,1 @@
-web: App --env=production --workdir=./ --config:servers.default.port=8080
+web: App --workers 1 --bind 0.0.0.0:$PORT
