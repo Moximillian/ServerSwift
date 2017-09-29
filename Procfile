@@ -1,1 +1,1 @@
-web: App --env=production --workdir=./ --config:servers.default.port=8080
+web: App --env=production --workdir=./ --config:server.port=$PORT
