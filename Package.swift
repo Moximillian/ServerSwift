@@ -4,10 +4,10 @@ import PackageDescription
 let package = Package(
   name: "ServerSwift",
   dependencies: [
-    .package(url: "https://github.com/vapor/vapor", from: "2.2.0")
+    .package(url: "https://github.com/swift-server/http", .branch("develop"))
   ],
   targets: [
-    .target(name: "ServerSwift", dependencies: ["Vapor"], path: ".", sources: ["Sources"])
+    .target(name: "ServerSwift", dependencies: ["HTTP"], path: ".", sources: ["Sources"])
   ],
   // "products: " -definition is implicit based on targets
   swiftLanguageVersions: [4]
