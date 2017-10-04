@@ -43,5 +43,5 @@ try! server.start(port: getPort()) { request, response in
   return .discardBody
 }
 
-CFRunLoopRun()
+RunLoop.current.run()
 
