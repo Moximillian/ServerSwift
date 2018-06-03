@@ -33,15 +33,15 @@ func getBody() -> String {
   }
   return body
 }
-
-let server = HTTPServer()
-try! server.start(port: getPort()) { request, response in
+let options = HTTPServer.Options(onPort: getPort(), tlsConf: nil)
+let server = HTTPServer(with: options) { request, response in
   print("\(Date()) – Method: \(request.method), target: \(request.target)")
   response.writeHeader(status: .ok)
   response.writeBody(getBody())
   response.done()
   return .discardBody
 }
+try! server.start()
 
 RunLoop.current.run()
 
