@@ -1,5 +1,4 @@
 import Foundation
-import HTTP
 
 let defaultPort = 8080
 
@@ -33,15 +32,18 @@ func getBody() -> String {
   }
   return body
 }
-let options = HTTPServer.Options(onPort: getPort(), tlsConf: nil)
-let server = HTTPServer(with: options) { request, response in
-  print("\(Date()) – Method: \(request.method), target: \(request.target)")
-  response.writeHeader(status: .ok)
-  response.writeBody(getBody())
-  response.done()
-  return .discardBody
+
+let server = HTTPServer(port: getPort()) { request, response in
+
+  if (request.uri == "/") {
+    let responseData = getBody()
+    response.send(responseData)
+    print("Response: \(responseData)")
+  }
 }
+
 try! server.start()
 
-RunLoop.current.run()
+
+
 
