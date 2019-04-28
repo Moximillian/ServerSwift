@@ -1,9 +1,12 @@
 {
-    "name": "SwiftApp",
-    "scripts": {},
-    "env": {},
-    "formation": {},
-    "addons": [],
+    "name": "Swift Server Example",
+    "description": "An example HTTP server using Swift on Heroku.",
+    "repository": "https://github.com/Moximillian/ServerSwift",
+    "website": "https://github.com/Moximillian/ServerSwift",
+    "keywords": [
+        "swift",
+        "httpserver"
+    ],
     "buildpacks": [
         {
             "url": "https://github.com/kylef/heroku-buildpack-swift"
