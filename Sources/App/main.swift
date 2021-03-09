@@ -15,8 +15,8 @@ func getPort() -> Int {
 }
 
 struct Stuff: Codable {
-  let index: Int = 9
-  let title: String = "Foober"
+  var index: Int = 9
+  var title: String = "Foober"
 }
 
 let s = Stuff()
