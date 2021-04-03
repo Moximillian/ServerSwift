@@ -39,6 +39,9 @@ let server = HTTPServer(port: getPort()) { request, response in
     let responseData = getBody()
     response.send(responseData)
     print("Response: \(responseData)")
+  } else {
+    print("Ignoring request \(request.method) \(request.uri)")
+    response.send("");
   }
 }
 
